@@ -1,5 +1,5 @@
 # endpointMonitoringSetup
-Setting up blackbox exporter for endpoint monitoring.
+Exploring the different ways to set up blackbox exporter for endpoint monitoring.
 
 This repo will cover the following implementations.
 
