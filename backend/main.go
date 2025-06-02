@@ -13,8 +13,14 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 
 func targetsHandler(w http.ResponseWriter, r *http.Request) {
 	targets := []map[string]interface{}{
-		{"targets": []string{"http://example.com"}},
-		{"targets": []string{"http://localhost:8000"}},
+		{
+			"targets": []string{"http://example.com"},
+			"labels":  map[string]string{},
+		},
+		{
+			"targets": []string{"http://localhost:8000"},
+			"labels":  map[string]string{},
+		},
 	}
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(targets); err != nil {
