@@ -5,7 +5,7 @@ scrape_configs:
   metrics_path: /probe
   # No need for static params
   http_sd_configs:
-    - url: http://127.0.0.1:3001/targets # Backend endpoint
+    - url: http://localhost:8000/targets_custom
       refresh_interval: 5m
       
   relabel_configs:
@@ -26,4 +26,4 @@ scrape_configs:
   - source_labels: [__meta_datacenter]
     target_label: datacenter
   - target_label: __address__
-    replacement: 127.0.0.1:9115 # Local blackbox exporter endpoint
+    replacement: localhost:9115 # Local blackbox exporter endpoint

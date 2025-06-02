@@ -7,7 +7,7 @@ scrape_configs:
     module: [http_2xx] # Defined in blackbox exporter configuration
   http_sd_configs: # Implement service discovery
     - url: http://localhost:8000/targets
-      refresh_interval: 5m
+      refresh_interval: 1m # Refresh every minute
       
   relabel_configs:
   - source_labels: [__address__]
@@ -15,4 +15,4 @@ scrape_configs:
   - source_labels: [__param_target]
     target_label: instance
   - target_label: __address__
-    replacement: 127.0.0.1:9115 # Blackbox exporter endpoint
+    replacement: localhost:9115 # Blackbox exporter endpoint

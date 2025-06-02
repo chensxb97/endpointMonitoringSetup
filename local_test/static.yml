@@ -9,7 +9,7 @@ scrape_configs:
   # To onboard more endpoints, simply update this section
   - targets:
     - https://example.com
-    - https://example2.com
+    - http://localhost:8000
     
   relabel_configs:
   - source_labels: [__address__]
@@ -17,4 +17,4 @@ scrape_configs:
   - source_labels: [__param_target]
     target_label: instance
   - target_label: __address__
-    replacement: 127.0.0.1:9115 # Local blackbox exporter endpoint
+    replacement: localhost:9115 # Local blackbox exporter endpoint
