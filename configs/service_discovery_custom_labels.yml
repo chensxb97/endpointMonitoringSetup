@@ -4,8 +4,8 @@ scrape_configs:
 - job_name: "blackbox-exporter"
   metrics_path: /probe
   # No need for static params
-  http_sd_configs:
-    - url: http://localhost:8000/targets_custom
+  http_sd_configs: # Implement service discovery
+    - url: http://localhost:8000/targets_custom # HTTP SD endpoint
       refresh_interval: 5m
       
   relabel_configs:
@@ -26,4 +26,4 @@ scrape_configs:
   - source_labels: [__meta_datacenter]
     target_label: datacenter
   - target_label: __address__
-    replacement: localhost:9115 # Local blackbox exporter endpoint
+    replacement: localhost:9115 # Blackbox exporter endpoint

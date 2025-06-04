@@ -4,17 +4,15 @@ scrape_configs:
 - job_name: "blackbox-exporter"
   metrics_path: /probe
   params:
-    module: [http_2xx]  # Defined in blackbox exporter configuration
-  static_configs:
-  # To onboard more endpoints, simply update this section
-  - targets:
-    - https://example.com
-    - http://localhost:8000
-    
+    module: [http_2xx] # Defined in blackbox exporter configuration
+  http_sd_configs: # Implement service discovery
+    - url: http://localhost:8000/targets # HTTP SD endpoint
+      refresh_interval: 5m
+      
   relabel_configs:
   - source_labels: [__address__]
     target_label: __param_target
   - source_labels: [__param_target]
     target_label: instance
   - target_label: __address__
-    replacement: localhost:9115 # Local blackbox exporter endpoint
+    replacement: localhost:9115 # Blackbox exporter endpoint

@@ -8,3 +8,4 @@ modules:
       method: GET
       tls_config:
         insecure_skip_verify: false # Skip verification for simplicity
+  # Define more modules here if required
