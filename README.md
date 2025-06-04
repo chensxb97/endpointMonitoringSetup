@@ -13,7 +13,7 @@ Blackbox exporter can be first installed by either installing the binary from [h
 ./blackbox_exporter --config.file=./configs/blackbox.yml
 ```
 
-**From Scratch**
+**Built from Scratch**
 ```shell
 cd blackbox_exporter/ && go run main.go --config.file=./configs/blackbox.yml
 ```
@@ -33,7 +33,7 @@ Similarly, you can choose to either install the binary from [here](https://prome
 ./prometheus --config.file=./configs/static.yml
 ```
 
-**From Scratch**
+**Built from Scratch**
 ```shell
 cd prometheus/ && make build
 ./prometheus --config.file=./configs/static.yml
