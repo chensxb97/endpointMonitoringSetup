@@ -1,5 +1,5 @@
 # endpointMonitoringSetup
-Exploring the different ways to set up blackbox exporter for endpoint monitoring.
+Exploring the different ways to set up Blackbox exporter/Prometheus for endpoint monitoring.
 
 ## Running Blackbox Exporter
 Blackbox exporter can be first installed by either installing the binary from [here](https://github.com/prometheus/blackbox_exporter/releases) or cloning the [repo](https://github.com/prometheus/blackbox_exporter.git). Afterwards, proceed with the following:
@@ -8,12 +8,12 @@ Blackbox exporter can be first installed by either installing the binary from [h
 
 2. Run Blackbox Exporter.
 
-**Binary**
+**Running from Binary**
 ```shell
 ./blackbox_exporter --config.file=./configs/blackbox.yml
 ```
 
-**Built from Scratch**
+**Running from repo**
 ```shell
 cd blackbox_exporter/ && go run main.go --config.file=./configs/blackbox.yml
 ```
@@ -28,19 +28,19 @@ Similarly, you can choose to either install the binary from [here](https://prome
 
 2. Run Prometheus.
 
-**Binary**
+**Running from Binary**
 ```shell
 ./prometheus --config.file=./configs/static.yml
 ```
 
-**Built from Scratch**
+**Build and run manually**
 ```shell
 cd prometheus/ && make build
 ./prometheus --config.file=./configs/static.yml
 ```
 
-## Run HTTP Endpoints for simulating HTTP SD
-For this project, HTTP SD endpoints are discoverable on `localhost:8000/targets` and `localhost:8000/targets_custom`.
+## Run HTTP Endpoints
+For this project, a simple backend script in Go is used to simulate HTTP SD endpoints. They are are discoverable on `localhost:8000/targets` and `localhost:8000/targets_custom`.
 ```go
 cd backend/ && go run main.go
 ```
