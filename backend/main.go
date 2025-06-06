@@ -33,21 +33,21 @@ func targetsHandlerWithCustomLabels(w http.ResponseWriter, r *http.Request) {
 		{
 			"targets": []string{"http://example.com"},
 			"labels": map[string]string{
-				"__meta_module":      "http_2xx",
-				"__meta_application": "App 1",
-				"__meta_team":        "Alpha",
-				"__meta_environment": "prod",
-				"__meta_datacenter":  "A",
+				"module":      "http_2xx",
+				"application": "App 1",
+				"team":        "Alpha",
+				"environment": "prod",
+				"datacenter":  "A",
 			},
 		},
 		{
 			"targets": []string{"http://localhost:8000"},
 			"labels": map[string]string{
-				"__meta_module":      "http_2xx",
-				"__meta_application": "App 2",
-				"__meta_team":        "Beta",
-				"__meta_environment": "nonprod",
-				"__meta_datacenter":  "B",
+				"module":      "http_2xx",
+				"application": "App 2",
+				"team":        "Beta",
+				"environment": "nonprod",
+				"datacenter":  "B",
 			},
 		},
 	}
